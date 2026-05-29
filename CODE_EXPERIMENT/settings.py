@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
         display_name="Ranking experiment static",
         # app_sequence=['introduction','my_survey_static','ideology', 'demographics_and_payment'], num_demo_participants=20, #introduction is on qualtrics
         app_sequence=['my_survey_static','ideology', 'demographics_and_payment'], num_demo_participants=200,
-        completionlink='https://app.prolific.com/submissions/complete?cc=CW4CSNN0', #<--- WIP "use a placeholder link, and replace once you have a study created in prolific"
+        completionlink='https://app.prolific.com/submissions/complete?cc=PLACEHOLDER', #<--- "use a placeholder link, and replace once you have a study created in prolific"
         ),
 #    dict(
 #         name='My_survey_updates',
@@ -28,6 +28,10 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = []
 
+# in the experiments, these are stored FOR EACH participants
+# which made experiment data redundantly big
+# I am keeping because it was here during the experiment
+# but you are free to leave it as empty list
 SESSION_FIELDS = [
     '_events_loaded',
     '_SEED2POP_INITIAL',
@@ -38,7 +42,6 @@ SESSION_FIELDS = [
     "EVENTS",
     'DIAGNOSTIC_CORRECTED_TIMEOUTS',
     "start_time"
-
 ]
 
 # ISO-639 code
@@ -66,6 +69,6 @@ Here are some oTree games.
 """
 
 
-SECRET_KEY = '7184582969693'
+SECRET_KEY = 'YOUR_SECRET_KEY_HERE'
 
 INSTALLED_APPS = ['otree']
