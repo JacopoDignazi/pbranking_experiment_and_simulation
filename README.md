@@ -6,3 +6,4 @@ In particular:
 - RESULTS_SIMULATION: pkl data results of the simulations, used in the final analysis
 - CODE_ANALYSIS: python code to reproduce the analysis on experimental and simulated results
 
+For any question or help using the code, contact me at jacopo.dignazi@upf.edu or jacopodignazi@gmail.com
