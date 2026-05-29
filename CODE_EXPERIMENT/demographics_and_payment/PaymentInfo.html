@@ -1,0 +1,26 @@
+{{ block title }}Thank you{{ endblock }}
+{{ block content }}
+
+<!-- <p>
+    <em>We value your participation in this study.</em>
+</p>
+
+<div class="panel panel-default" style="margin-bottom:10px">
+    <div class="panel-body">
+        <p><b>Information:</b></p>
+        <p>This is how you will get paid</p>
+        <p><em>Note: Extra information.</em></p>
+    </div>
+</div> -->
+
+<script>
+    let completionlink = js_vars.completionlink;
+
+    window.onload = function(){
+        window.location.href=completionlink;
+    }
+</script>
+
+
+{{ endblock }}
+

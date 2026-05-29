@@ -1,0 +1,107 @@
+
+{{ block content }}
+
+<p>
+    <label>Task {{ round_number }} out of 5
+        <progress value="{{ round_number }}" max="5">
+        </progress>
+    </label>
+</p>
+
+    <p>
+        Here are the top 10 results of a search about <b> {{ topic }} </b> in 2022. Click on one of them to learn more about it. 
+    </p>
+	
+    
+   {% for i in range(10) %}
+           <button type="submit" name="click_rank" value="{{ i }}">
+		    {% if i == 0 %}
+		        {{ title_0 }} <br> <em>{{ source_0 }}</em>
+		    {% elif i == 1 %}
+		        {{ title_1 }} <br> <em>{{ source_1 }}</em>
+		    {% elif i == 2 %}
+		        {{ title_2 }} <br> <em>{{ source_2 }}</em>
+		    {% elif i == 3 %}
+		        {{ title_3 }} <br> <em>{{ source_3 }}</em>
+		    {% elif i == 4 %}
+		        {{ title_4 }} <br> <em>{{ source_4 }}</em>
+		    {% elif i == 5 %}
+		        {{ title_5 }} <br> <em>{{ source_5 }}</em>
+		    {% elif i == 6 %}
+		        {{ title_6 }} <br> <em>{{ source_6 }}</em>
+		    {% elif i == 7 %}
+		        {{ title_7 }} <br> <em>{{ source_7 }}</em>
+		    {% elif i == 8 %}
+		        {{ title_8 }} <br> <em>{{ source_8 }}</em>
+		    {% elif i == 9 %}
+		        {{ title_9 }} <br> <em>{{ source_9 }}</em>
+		    {% endif %}
+           </button>
+   {% endfor %}
+
+<style>
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center-align the buttons horizontally */
+    align-items: center; /* Center-align the buttons vertically */
+}
+
+button {
+    appearance: auto;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-variant-alternates: ;
+    font-variant-position: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: 24px;
+    font-family: ;
+    font-optical-sizing: ;
+    font-kerning: ;
+    font-feature-settings: ;
+    font-variation-settings: ;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    writing-mode: horizontal-tb !important;
+    margin: 0.5em;
+    padding-block: 15px;
+    padding-inline: 15px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    height: 150px;
+    border-radius: 25px;
+    width: 99%;
+   
+   &:hover{
+		cursor: pointer;
+		background: #ECEFF1;
+		border-color:rgba(0,0,0,0.25);
+	}
+
+}
+</style> 
+
+{{ endblock }}
+
+
+
+
+

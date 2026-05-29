@@ -1,0 +1,54 @@
+
+{{ block content }}
+
+
+<p>
+    <label>Task {{ round_number }} out of 4
+        <progress value="{{ round_number }}" max="4">
+        </progress>
+    </label>
+</p>
+
+    <div class="explaination-text">
+        <br>Imagine you have performed a search in social media about the topic <b>{{topic_name_short}}</b>. Specifically, a search about <b>{{topic_spec}}</b>.
+        <br>In the next screen you will be shown a ranked list of 10 items displaying the results of that search.
+        <br>You will have to:<br>
+        (1) Select an item from the ranked list by clicking on it. You will be sent to a new screen showing the article.<br>
+        (2) Take some time to read it. After that you will be asked some other questions.<br>
+        <br>
+    </div>		 
+    {{formfields}}
+
+    {{next_button}}
+    <!-- <button name="I_understand" value="True">I understand</button> -->
+
+
+<style>
+.otree-timer {
+    display: none;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #0d6efd; /* Change the background color */
+    color: white  ; /* Change the text color */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: transparent ; /* Change the border style and color */
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px; /* Add rounded corners */
+    &:hover{
+            cursor: pointer;
+            background: #80ACF9;
+            border-color: transparent ;
+            }
+}
+
+</style>
+    
+{{ endblock }}

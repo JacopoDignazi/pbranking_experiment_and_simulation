@@ -1,0 +1,66 @@
+{{ block title }}Task {{round_number}} {{ endblock }}
+
+{{ block content }}
+<p>
+    <label>Task {{ round_number }} out of 4
+        <progress value="{{ round_number }}" max="4">
+        </progress>
+    </label>
+</p>
+
+
+<div class="topic-text">
+
+    <p>In the following task we will focus on the topic of <b>{{ topic_name_short }}</b> in the United States. {{topic_description}} 
+    <br> <b>Left:</b> {{topic_description_left}}
+    <br> <b>Right:</b> {{topic_description_right}}
+</div>
+
+<p>
+    <br>Which political stance best reflects your view on the topic of {{topic_name_short}} policies in the United States?:
+</p>
+    
+
+{{ formfields }}
+
+{{ next_button }}
+    
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+
+	
+	 .topic-text {
+            background-color: #f4f4f4;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: justify;
+        }
+
+	.btn {
+		display: inline-block;
+		font-weight: 400;
+		line-height: 1.5;
+		background-color: #0d6efd; /* Change the background color */
+        color: white  ; /* Change the text color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: transparent ; /* Change the border style and color */
+		text-align: center;
+		text-decoration: none;
+		vertical-align: middle;
+		cursor: pointer;
+		font-size: 1rem;
+        border-radius: 5px; /* Add rounded corners */
+		&:hover{
+			  	cursor: pointer;
+				background: #80ACF9;
+				border-color: transparent ;
+				}
+	}
+</style> 
+
+{{ endblock }}

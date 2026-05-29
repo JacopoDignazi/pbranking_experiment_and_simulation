@@ -1,0 +1,42 @@
+{{ block title }}Demographic data{{ endblock }}
+{{ block content }}
+
+    <p>
+        Finally, We would appreciate if you could answer the following questions about yourself.
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+    
+<style>
+			
+	.btn {
+		display: inline-block;
+		font-weight: 400;
+		line-height: 1.5;
+		background-color: #0d6efd; /* Change the background color */
+        color: white  ; /* Change the text color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: transparent ; /* Change the border style and color */
+		text-align: center;
+		text-decoration: none;
+		vertical-align: middle;
+		cursor: pointer;
+		font-size: 1rem;
+        border-radius: 5px; /* Add rounded corners */
+		&:hover{
+			  	cursor: pointer;
+				background: #80ACF9;
+				border-color: transparent ;
+				}
+	}
+
+	input[type=text] {
+		/* border: none; */
+		/* background-color: olive; */
+		width: 1000px
+	}
+</style> 
+
+{{ endblock }}

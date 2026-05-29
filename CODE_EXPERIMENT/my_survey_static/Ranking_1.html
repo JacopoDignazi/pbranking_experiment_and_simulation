@@ -1,0 +1,95 @@
+
+{{ block content }}
+
+<p>
+    <label>Task {{ round_number }} out of 4
+        <progress value="{{ round_number }}" max="4">
+        </progress>
+    </label>
+</p>
+
+    <p>
+        Here are the top 10 results of a search about <b>{{ topic_name_short }}</b>, on the specific topic of <b>{{topic_spec}}</b>. On which one would you click? 
+    </p>
+	
+   {% for i in range(10) %}
+           <button name="click_rank" value="{{ i }}">
+		    {% if i == 0 %}
+		        {{ title_0 }} <br> <em class="source-variable">{{ source_0 }}</em>
+		    {% elif i == 1 %}
+		        {{ title_1 }} <br> <em class="source-variable">{{ source_1 }}</em>
+		    {% elif i == 2 %}
+		        {{ title_2 }} <br> <em class="source-variable">{{ source_2 }}</em>
+		    {% elif i == 3 %}
+		        {{ title_3 }} <br> <em class="source-variable">{{ source_3 }}</em>
+		    {% elif i == 4 %}
+		        {{ title_4 }} <br> <em class="source-variable">{{ source_4 }}</em>
+		    {% elif i == 5 %}
+		        {{ title_5 }} <br> <em class="source-variable">{{ source_5 }}</em>
+		    {% elif i == 6 %}
+		        {{ title_6 }} <br> <em class="source-variable">{{ source_6 }}</em>
+		    {% elif i == 7 %}
+		        {{ title_7 }} <br> <em class="source-variable">{{ source_7 }}</em>
+		    {% elif i == 8 %}
+		        {{ title_8 }} <br> <em class="source-variable">{{ source_8 }}</em>
+		    {% elif i == 9 %}
+		        {{ title_9 }} <br> <em class="source-variable">{{ source_9 }}</em>
+		    {% endif %}
+           </button>
+   {% endfor %}
+
+<style>
+.otree-timer {
+    display: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center-align the buttons horizontally */
+    align-items: center; /* Center-align the buttons vertically */
+}
+
+button {
+    appearance: auto;
+    font-size: 17px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: left;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    writing-mode: horizontal-tb !important;
+    margin: 0.5em;
+    padding-block: 15px;
+    padding-inline: 15px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    height: 85px;   
+    border-radius: 25px;
+    width: 99%;
+   
+   &:hover{
+		cursor: pointer;
+		background: #ECEFF1;
+		border-color:rgba(0,0,0,0.25); 
+    }
+}
+
+    button em.source-variable {
+            font-size: 14px; /* Adjust the font size as needed */
+            color: darkgrey; /* Change to the desired dark grey color */
+            text-align: right; /* Align the text to the right */
+            font-style: normal;
+        }
+</style> 
+
+{{ endblock }}

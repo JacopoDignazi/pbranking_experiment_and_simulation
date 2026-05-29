@@ -1,0 +1,237 @@
+{{ block content }}
+
+	<p>
+		<label>Task {{ round_number }} out of 4
+		    <progress value="{{ round_number }}" max="4">
+		    </progress>
+		</label>
+	</p>
+
+    <body>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<div class="news-container">
+	    <div class="news-title">{{ title }}</div>
+	    <div class="news-source">Source:  {{ source }}</div>
+        <input type='hidden' name="read_more_positioning" id="read_more_positioning" value="0"/>
+	    <div class="news-text" id="news-text">{{ abstract }}</div>
+        <button type="button" onclick="ReadMore(event)" id="ReadMoreButton">Read more...</button>
+        {{ formfield_errors 'read_more_positioning' }}
+	</div>
+
+	</body>
+		
+    <p>
+        <br> Please position the stance of <b>this article</b> on the topic of <b>{{ topic_name_short }}</b>:
+    </p>
+    {{ formfield 'positioning_text'}}
+
+    
+    <!-- {{formfields}}  -->
+
+    {{ next_button }}
+
+<script>
+    function ReadMore(event){
+        console.log("Readmore (positining) called")
+        document.getElementById('news-text').style.webkitLineClamp= 'unset';
+        document.getElementById('news-text').innerHTML='{{ text }}'
+
+        document.getElementById('ReadMoreButton').type='hidden';
+        document.getElementById('ReadMoreButton').style.visibility='hidden';
+        event.preventDefault()
+
+        document.getElementById('read_more_positioning').value = 1;
+
+    }
+</script>
+    
+<style>
+
+    .button-container {
+        display: flex;
+        justify-content: center; /* Center-align the buttons horizontally */
+        align-items: center; /* Center-align the buttons vertically */
+    }
+
+    button_img {
+        appearance: auto;
+        font-style: ;
+        font-variant-ligatures: ;
+        font-variant-caps: ;
+        font-variant-numeric: ;
+        font-variant-east-asian: ;
+        font-variant-alternates: ;
+        font-variant-position: ;
+        font-weight: ;
+        font-stretch: ;
+        font-size: 24px;
+        font-family: ;
+        font-optical-sizing: ;
+        font-kerning: ;
+        font-feature-settings: ;
+        font-variation-settings: ;
+        text-rendering: auto;
+        color: buttontext;
+        letter-spacing: normal;
+        word-spacing: normal;
+        line-height: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: left;
+        align-items: flex-start;
+        cursor: default;
+        box-sizing: border-box;
+        background-color: buttonface;
+        writing-mode: horizontal-tb !important;
+        margin: 0.5em;
+        padding-block: 15px;
+        padding-inline: 15px;
+        border-width: 2px;
+        border-style: outset;
+        border-color: buttonborder;
+        border-image: initial;
+        height: 120px;
+        border-radius: 25px;
+        width: 20%;
+       
+       &:hover{
+            cursor: pointer;
+            background: #ECEFF1;
+            border-color:rgba(0,0,0,0.25); 
+        }
+
+       &.is-active{
+        background: $primary_color;
+        color: white;
+        border-color: rgba(0,0,0,0.25);
+        
+        &:hover{
+            background: darken($primary_color,10%);
+            }
+        }
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center; /* Center-align the buttons horizontally */
+        align-items: center; /* Center-align the buttons vertically */
+    }
+
+    button {
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        background-color: #0d6efd; /* Change the background color */
+        color: white  ; /* Change the text color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        margin: 10px 0px;
+        border: transparent ; /* Change the border style and color */
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px; /* Add rounded corners */
+        &:hover{
+                cursor: pointer;
+                background: #80ACF9;
+                border-color: transparent ;
+                }
+
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .news-container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #DBDBDB;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 50px;
+        box-sizing: border-box;
+    }
+
+    .news-title {
+        font-size: 34px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        
+    }
+
+    .news-source {
+        font-style: italic;
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 30px;
+    }
+    .news-text {
+        font-size: 16px;
+        line-height: 1.3;
+        text-align: justify;
+        /* max-height: 10lh; */
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        /* -webkit-line-clamp: 10; */
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center; /* Center-align the buttons horizontally */
+        align-items: center; /* Center-align the buttons vertically */
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        background-color: #0d6efd; /* Change the background color */
+        color: white  ; /* Change the text color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: transparent ; /* Change the border style and color */
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px; /* Add rounded corners */
+        &:hover{
+                cursor: pointer;
+                background: #80ACF9;
+                border-color: transparent ;
+                }
+    }
+
+
+    #iframe-container {
+        text-align: center;
+    }
+
+    #embedded-iframe {
+        width: 800px; /* Set your preferred width */
+        height: 600px; /* Set your preferred height */
+        border: none; /* Remove iframe border if desired */
+    }
+    
+    .output iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .output iframe::-webkit-scrollbar {
+        display: none;
+    }
+</style> 
+
+{{ endblock }}
+
+

@@ -1,0 +1,81 @@
+
+{{ block content }}
+
+	<p>
+		<label>Task {{ round_number }} out of 5
+		    <progress value="{{ round_number }}" max="5">
+		    </progress>
+		</label>
+	</p>
+
+    <p>
+        This is more information on the selected article. Read it carefully and continue to the next page.
+    </p>
+
+    <p>
+        <b>{{ title }}</b>. <br> {{ text }}. <br>
+        <br><em>Source:  {{ source }}</em>. <br><br>
+
+    </p>
+    
+    <div id="iframe-container">
+      <iframe src="{{ clean_url }}" width="1000" height="600"></iframe>
+    </div>
+		
+
+    {% block next_button %}
+        <button type="submit" class="otree-btn-next custom-next-button">Continue (I have looked at the article)</button>
+    {% endblock %}
+    
+<style>
+
+		.button-container {
+			display: flex;
+			justify-content: center; /* Center-align the buttons horizontally */
+			align-items: center; /* Center-align the buttons vertically */
+		}
+
+		button {
+				display: inline-block;
+				font-weight: 400;
+				line-height: 1.5;
+				background-color: #0d6efd; /* Change the background color */
+				color: white  ; /* Change the text color */
+				padding: 10px 20px; /* Adjust padding as needed */
+				border: transparent ; /* Change the border style and color */
+				text-align: center;
+				text-decoration: none;
+				vertical-align: middle;
+				cursor: pointer;
+				font-size: 1rem;
+				border-radius: 5px; /* Add rounded corners */
+				&:hover{
+					  	cursor: pointer;
+						background: #80ACF9;
+						border-color: transparent ;
+						}
+		}
+
+  
+        #iframe-container {
+            text-align: center;
+        }
+
+        #embedded-iframe {
+            width: 800px; /* Set your preferred width */
+            height: 600px; /* Set your preferred height */
+            border: none; /* Remove iframe border if desired */
+        }
+        
+		.output iframe {
+		   border: none;
+		   width: 100%;
+		   height: 100%;
+		   overflow: hidden;
+		}
+		.output iframe::-webkit-scrollbar {
+		   display: none;
+		}
+</style> 
+
+{{ endblock }}

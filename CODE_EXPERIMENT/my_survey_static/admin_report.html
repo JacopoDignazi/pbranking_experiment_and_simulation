@@ -1,0 +1,77 @@
+<html>
+<h1>Downloads</h1>
+<a href="" id="link_all_events" download="all_events.csv">Download all events</a>
+<br><br>
+<a href="" id="link_interaction_events" download="interaction_events.csv">Download interaction events</a>
+<br><br>
+<a href="" id="link_popularities" download="popularities.csv">Download current popularities</a>
+<br><br>
+
+<h1>Safety check</h1>
+<p>Popularity state: {{CHECK_POP}}</p>
+<br>
+<p>Closed seed timeout state: {{CHECK_CLOSED_STATE}}</p>
+
+<h1>Tables</h1>
+<h4>Seed states</h4>
+<div id="table_seed_states">{{TABLE_SEEDS_STATE}}</div>
+<br><br>
+<h4>Topic # open</h4>
+<div id="table_topic_open">{{TABLE_TOPIC_OPEN}}</div>
+<br><br>
+<h4>Topic # interactions</h4>
+<div id="table_topic_interactions">{{TABLE_TOPIC_INTERACTIONS}}</div>
+<br><br>
+<h4>Metrics</h4>
+<div id="table_topic_interactions">{{TABLE_METRICS}}</div>
+<br><br>
+<h4>Queue state</h4>
+<div id="table_queue">{{TABLE_QUEUE}}</div>
+<br><br>
+<h4>Waiting history</h4>
+<div id="table_waiting">{{TABLE_WAITING}}</div>
+<br><br>
+<h4>Timeout history</h4>
+<div id="table_timeout">{{TABLE_TIMEOUT}}</div>
+<br><br>
+<h4>Rankings</h4>
+<div id="table_rankings">{{TABLE_RANKINGS}}</div>
+<br><br>
+<h4>Events</h4>
+<input type="checkbox" id="show_all_events" aria-pressed="false">    Show ALL events</button>
+<div id="table_events">{{TABLE_EVENTS_INTERACTIONS}}</div>
+<br><br>
+</html>
+<script>
+  var txt_events = '{{csv_all_events}}';
+  document.getElementById('link_all_events').onclick = function(){
+    this.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(txt_events);
+  };
+  var txt_interaction_events = '{{csv_interaction_events}}';
+  document.getElementById('link_interaction_events').onclick = function(){
+    this.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(txt_interaction_events);
+  };
+  var txt_pop = '{{csv_popularities}}';
+  document.getElementById('link_popularities').onclick = function(){
+    this.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(txt_pop);
+  };
+
+  function on_my_toggle_btn_click(e) {
+    //console.log(e, this); // `e` is `click { target: button#btn-my-toggle ... }`;  `this` is `<button id="btn-my-toggle"...`
+    let isPressed_str = this.getAttribute('aria-pressed'); // note, typeof here is String!
+    let isPressed = (isPressed_str === 'true'); // "cast" to Boolean
+    isPressed = !(isPressed); // toggle
+    this.setAttribute('aria-pressed', isPressed);
+    
+    let table_event=document.getElementById('table_events')
+    if(isPressed){
+      table_event.innerHTML='{{TABLE_ALL_EVENTS}}'
+    }
+    else{
+      table_event.innerHTML='{{TABLE_EVENTS_INTERACTIONS}}'
+    }
+  }
+
+  let my_toggle_btn = document.getElementById('show_all_events');
+  my_toggle_btn.onclick = on_my_toggle_btn_click;
+</script>
