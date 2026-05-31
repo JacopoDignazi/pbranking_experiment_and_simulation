@@ -148,43 +148,6 @@ def generate_click_row_as_continuous(row_idx, rho_confirmatory=0.3, rho_explorat
 
     return row
 
-# CLICK_BEHAVIOR_RK1=[
-# [0.38683128, 0.18518519, 0.23045267, 0.09053498, 0.10699588],
-# [0.39473684, 0.23684211, 0.28947368, 0.06140351, 0.01754386],
-# [0.15384615, 0.15384615, 0.38461538, 0.18681319, 0.12087912],
-# [0.19512195, 0.02439024, 0.31707317, 0.31707317, 0.14634146],
-# [0.13114754, 0.04918033, 0.26229508, 0.26229508, 0.29508197]]
-# CLICK_BEHAVIOR_RK1=np.array(CLICK_BEHAVIOR_RK1).T
-
-# CLICK_BEHAVIOR_RK2V1=[
-# [0.25362319, 0.15533981, 0.10714286, 0.09638554, 0.15384615],
-# [0.26086957, 0.2815534 , 0.19642857, 0.14457831, 0.21153846],
-# [0.36231884, 0.33980583, 0.375     , 0.31325301, 0.25      ],
-# [0.0942029 , 0.13592233, 0.17857143, 0.19277108, 0.26923077],
-# [0.02898551, 0.08737864, 0.14285714, 0.25301205, 0.11538462]]
-# CLICK_BEHAVIOR_RK2V1=np.array(CLICK_BEHAVIOR_RK2V1).T
-
-# CLICK_BEHAVIOR_RK2V2=[
-# [0.26470588, 0.16037736, 0.11111111, 0.15686275, 0.20588235],
-# [0.32352941, 0.26415094, 0.22222222, 0.31372549, 0.22058824],
-# [0.20588235, 0.29245283, 0.37777778, 0.11764706, 0.20588235],
-# [0.12941176, 0.18867925, 0.11111111, 0.23529412, 0.14705882],
-# [0.07647059, 0.09433962, 0.17777778, 0.17647059, 0.22058824]]
-# CLICK_BEHAVIOR_RK2V2=np.array(CLICK_BEHAVIOR_RK2V2).T
-# CLICK_BEHAVIOR_RK2V3=[
-# [0.27891156, 0.16489362, 0.23469388, 0.06206897, 0.0962963 ],
-# [0.26870748, 0.2712766 , 0.16326531, 0.08275862, 0.14814815],
-# [0.28231293, 0.32978723, 0.34693878, 0.32413793, 0.23703704],
-# [0.1122449 , 0.12234043, 0.14285714, 0.25517241, 0.20740741],
-# [0.05782313, 0.11170213, 0.1122449 , 0.27586207, 0.31111111]]
-# CLICK_BEHAVIOR_RK2V3=np.array(CLICK_BEHAVIOR_RK2V3).T
-# CLICK_BEHAVIOR_RK2V4=[
-# [0.28624535, 0.1827957 , 0.14953271, 0.11363636, 0.05294118],
-# [0.24163569, 0.23655914, 0.1588785 , 0.10606061, 0.17647059],
-# [0.31226766, 0.37096774, 0.42990654, 0.33333333, 0.19411765],
-# [0.10408922, 0.12365591, 0.14953271, 0.21969697, 0.28235294],
-# [0.05576208, 0.08602151, 0.11214953, 0.22727273, 0.29411765]]
-# CLICK_BEHAVIOR_RK2V4=np.array(CLICK_BEHAVIOR_RK2V4).T
 
 # -------------------------------- highlight behavior
 def f_bakshy(x, alpha, n_classes):
@@ -200,46 +163,6 @@ def generate_highlighting_row_as_continuous(row_idx, alpha):
             row[n]=1
     extremism=f_bakshy(row_idx-N_CLASSES, alpha, N_CLASSES)
     return [v*extremism for v in row]
-
-# HIGHLIGHT_BEHAVIOR_RK1=[
-#  [0.8617021276595744, 0.4222222222222222,  0.26785714285714285, 0.0, 0.2692307692307692],
-#  [0.4222222222222222,0.4444444444444444,0.36363636363636365,0.14285714285714285,0.0],
-#  [0.2857142857142857,0.5714285714285714,0.2,0.29411764705882354,0.36363636363636365],
-#  [0.5, 0.0, 0.46153846153846156, 0.38461538461538464, 0.6666666666666666],
-#  [0.5, 0.3333333333333333, 0.3125, 0.625, 0.6111111111111112]]
-# HIGHLIGHT_BEHAVIOR_RK1=np.array(HIGHLIGHT_BEHAVIOR_RK1).T
-
-# HIGHLIGHT_BEHAVIOR_RK2V1=[
-# [0.6       , 0.75      , 0.83333333, 0.375     , 1.        ],
-# [0.69444444, 0.75862069, 0.63636364, 0.41666667, 0.54545455],
-# [0.68      , 0.51428571, 0.61904762, 0.46153846, 0.53846154],
-# [0.61538462, 0.5       , 0.5       , 0.75      , 0.71428571],
-# [0.75      , 0.22222222, 0.5       , 0.85714286, 0.83333333]]
-# HIGHLIGHT_BEHAVIOR_RK2V1=np.array(HIGHLIGHT_BEHAVIOR_RK2V1).T
-
-# HIGHLIGHT_BEHAVIOR_RK2V2=[
-# [0.68888889, 0.52941176, 0.8       , 0.875     , 0.71428571],
-# [0.65454545, 0.60714286, 0.6       , 0.6875    , 0.6       ],
-# [0.68571429, 0.61290323, 0.58823529, 0.83333333, 0.35714286],
-# [0.68181818, 0.65      , 0.4       , 0.58333333, 0.6       ],
-# [0.76923077, 0.6       , 0.75      , 0.66666667, 0.8       ]]
-# HIGHLIGHT_BEHAVIOR_RK2V2=np.array(HIGHLIGHT_BEHAVIOR_RK2V2).T
-
-# HIGHLIGHT_BEHAVIOR_RK2V3=[
-# [0.48780488, 0.77419355, 0.26086957, 0.22222222, 0.46153846],
-# [0.67088608, 0.56862745, 0.625     , 0.33333333, 0.3       ],
-# [0.45783133, 0.43548387, 0.26470588, 0.25531915, 0.4375    ],
-# [0.51515152, 0.30434783, 0.42857143, 0.45945946, 0.5       ],
-# [0.41176471, 0.28571429, 0.54545455, 0.575     , 0.66666667]]
-# HIGHLIGHT_BEHAVIOR_RK2V3=np.array(HIGHLIGHT_BEHAVIOR_RK2V3).T
-
-# HIGHLIGHT_BEHAVIOR_RK2V4=[
-# [0.48051948, 0.38235294, 0.125     , 0.2       , 0.55555556],
-# [0.38461538, 0.34090909, 0.29411765, 0.14285714, 0.23333333],
-# [0.58333333, 0.31884058, 0.30434783, 0.20454545, 0.12121212],
-# [0.25      , 0.13043478, 0.0625    , 0.20689655, 0.45833333],
-# [0.2       , 0.4375    , 0.25      , 0.4       , 0.66      ]]
-# HIGHLIGHT_BEHAVIOR_RK2V4=np.array(HIGHLIGHT_BEHAVIOR_RK2V4).T
 
 @timer_initialize_run
 def Initialize(Number_of_news, Distribution_news, Number_of_readers, Distribution_readers, 
@@ -493,29 +416,6 @@ def run(Readers, News_items,
 #<-------------------------- metrics
 import matplotlib.pyplot as plt
 
-# def popularity_series_to_avgrank(popularity_series, News_items, return_data=False, plot=True):
-#     """
-#     takes a series of ranking and output average rank by stance
-#     """
-#     RANKINGS=[popularity_to_ranking(pop) for pop in popularity_series]
-#     Ranks=[[] for _ in range(len(POSSIBLE_STANCES))]
-#     for ranking in RANKINGS:
-#         for s, r in zip(News_items, ranking):
-#             Ranks[s2idx[s]].append(r)
-             
-#     Ranking_avg=[]
-#     Ranking_std=[]
-#     for ranks in Ranks:
-#         Ranking_avg.append(np.mean(ranks)) 
-#         Ranking_std.append(np.std(ranks))
-    
-#     if plot:
-        
-#         plt.errorbar(POSSIBLE_STANCES, Ranking_avg, yerr=Ranking_std, fmt='o')
-#         plt.plot(POSSIBLE_STANCES, mav_centered(Ranking_avg), color='r')
-
-#     if return_data:
-#         return Ranking_avg, Ranking_std
     
 def run_popularities_to_stancewise_avgrank(run_popularities, News_items):
     # NB remember run_popularities are [time {partition: popularity}]
