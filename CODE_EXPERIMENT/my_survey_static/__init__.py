@@ -6,15 +6,12 @@ import numpy as np
 
 import datetime
 
-# Your task is being assigned, please wait a few seconds
-
-# Can you change the number of symultaneous participants while running?
-# Panic mode?
-
 from copy import deepcopy
 
 class C(BaseConstants):
     NAME_IN_URL = 'my_survey_static'
+
+    RAKING_RANDOMIZED=True
 
     TIME_REFRESH=3
 
@@ -24,6 +21,7 @@ class C(BaseConstants):
     NUM_EXP_PARAM=2
     NUM_EXP_REP=3
 
+    # debugging only
     PRINT_START_SESSION=False
     PRINT_EVENT=False
     PRINT_SEED_MATCHING=False
@@ -1394,13 +1392,16 @@ class Ranking_1(Page):
             labels.append([a.label,]) #<--------- here it's decided what's used as label under the title during ranked titles selection
     
 
+        if C.RAKING_RANDOMIZED:
         # ################### randomizing ranking
-        # ind = [i for i in range(10)]
-        # # random.seed(player.id_in_subsession)
-        # random.shuffle(ind)
-        news_pop=[player.session.vars['SEED2POP'][player.seed][player.partition_user][num_news] for num_news in range(10)]
-        news_ranking=popularity_to_ranking(news_pop)#is fed a list [popularity] and returns a list ordered by num news [ranking]
-        ind=[ nr[0] for nr in sorted([(n, r) for n, r in enumerate(news_ranking)], reverse=False, key=lambda x: x[1]) ]
+            ind = [i for i in range(10)]
+            # random.seed(player.id_in_subsession)
+            random.shuffle(ind)
+        #######################################################################
+        else:
+            news_pop=[player.session.vars['SEED2POP'][player.seed][player.partition_user][num_news] for num_news in range(10)]
+            news_ranking=popularity_to_ranking(news_pop)#is fed a list [popularity] and returns a list ordered by num news [ranking]
+            ind=[ nr[0] for nr in sorted([(n, r) for n, r in enumerate(news_ranking)], reverse=False, key=lambda x: x[1]) ]
         
         if C.PRINT_RANKING:
             print("News items popularities:", news_pop)
